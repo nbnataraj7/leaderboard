@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { Team } from "./models";
-import { mockData } from "./mocks/mockData";
+//import { mockData } from "./mocks/mockData";
+import { fetchLeaderboard } from "./api";
+import { toCompleteClass, toMinutes, toUnlocked } from "./utils";
 // import { fetchLeaderboard } from "./api";
 
 //Update the time interval here
@@ -11,33 +13,30 @@ function App() {
   const [leaderboard, setLeaderboard] = useState<Team[]>();
   const [isFetching, setIsFetching] = useState(false);
 
-  const updateLeaderBoard = useCallback(() => {
-    setLeaderboard((prevLeaderBoard) =>
-      (prevLeaderBoard || []).sort((a, b) => {
-        return (
-          a.stages.reduce((acc, stage) => acc + stage.timeSpent, 0) -
-          b.stages.reduce((acc, stage) => acc + stage.timeSpent, 0)
-        );
-      })
-    );
+  const updateLeaderBoard = useCallback((teams: Team[]) => {
+    setLeaderboard(teams);
   }, []);
 
-  useEffect(() => {
-    setLeaderboard(mockData);
-
-    setInterval(() => {
-      //Call the API to get the latest leaderboard -
-      // setIsFetching(true);
-      // fetchLeaderboard().then((data) => {
-      //   setIsFetching(false);
-      //   if (data && data.teams && data.teams.length)
-      //     updateLeaderBoard(data.teams);
-      // });
-
-      //Get rid of below statement once we have the API ready
-      updateLeaderBoard();
-    }, LEADERBOARD_UPDATE_TIMER);
+  const initLeaderBoard = useCallback(async () => {
+    fetchLeaderboard().then((teams) => {
+      setIsFetching(false);
+      if (teams && teams.length) updateLeaderBoard(teams);
+    });
   }, [updateLeaderBoard]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      //Call the API to get the latest leaderboard -
+      setIsFetching(true);
+      initLeaderBoard();
+    }, LEADERBOARD_UPDATE_TIMER);
+
+    return clearInterval(interval);
+  }, [initLeaderBoard, updateLeaderBoard]);
+
+  useEffect(() => {
+    initLeaderBoard();
+  }, [initLeaderBoard]);
 
   return (
     <>
@@ -56,11 +55,29 @@ function App() {
           </thead>
           <tbody>
             {leaderboard?.map((team) => (
-              <tr key={team.id}>
-                <td>{team.name}</td>
-                {team.stages.map((stage) => (
-                  <td key={stage.stage}>{stage.timeSpent}</td>
-                ))}
+              <tr key={team.progressId}>
+                <td className="team-title">{team.teamName}</td>
+                <td className={toCompleteClass(team.stage1Completed)}>
+                  <p>{toMinutes(team.stage1TimeTaken)}</p>
+                </td>
+                <td className={toCompleteClass(team.stage2Completed)}>
+                  <p>{toUnlocked(team.stage2Unlocked)}</p>
+                  {team.stage2Unlocked && (
+                    <p>{toMinutes(team.stage2TimeTaken)}</p>
+                  )}
+                </td>
+                <td className={toCompleteClass(team.stage3Completed)}>
+                  <p>{toUnlocked(team.stage3Unlocked)}</p>
+                  {team.stage3Unlocked && (
+                    <p>{toMinutes(team.stage3TimeTaken)}</p>
+                  )}
+                </td>
+                <td className={toCompleteClass(team.stage4Completed)}>
+                  <p>{toUnlocked(team.stage4Unlocked)}</p>
+                  {team.stage4Unlocked && (
+                    <p>{toMinutes(team.stage4TimeTaken)}</p>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
