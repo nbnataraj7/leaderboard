@@ -61,19 +61,19 @@ function App() {
                   <p>{toMinutes(team.stage1TimeTaken)}</p>
                 </td>
                 <td className={toCompleteClass(team.stage2Completed)}>
-                  <p>{toUnlocked(team.stage2Unlocked)}</p>
+                  <p>{toUnlocked(team.stage2Unlocked, team.stage2Completed)}</p>
                   {team.stage2Unlocked && (
                     <p>{toMinutes(team.stage2TimeTaken)}</p>
                   )}
                 </td>
                 <td className={toCompleteClass(team.stage3Completed)}>
-                  <p>{toUnlocked(team.stage3Unlocked)}</p>
+                  <p>{toUnlocked(team.stage3Unlocked, team.stage3Completed)}</p>
                   {team.stage3Unlocked && (
                     <p>{toMinutes(team.stage3TimeTaken)}</p>
                   )}
                 </td>
                 <td className={toCompleteClass(team.stage4Completed)}>
-                  <p>{toUnlocked(team.stage4Unlocked)}</p>
+                  <p>{toUnlocked(team.stage4Unlocked, team.stage4Completed)}</p>
                   {team.stage4Unlocked && (
                     <p>{toMinutes(team.stage4TimeTaken)}</p>
                   )}

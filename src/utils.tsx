@@ -7,7 +7,7 @@ export const toMinutes = (timeInMilliseconds: number) => {
   const seconds = duration.seconds();
   return duration.asMilliseconds() > 0
     ? `${minutes} minutes ${seconds} seconds`
-    : "Not Started";
+    : "In Progress";
 };
 
 export const toCompleted = (completed: boolean) => {
@@ -18,7 +18,8 @@ export const toCompleteClass = (completed: boolean) => {
   return completed ? "completed" : "not-completed";
 };
 
-export const toUnlocked = (unlocked: boolean) => {
+export const toUnlocked = (unlocked: boolean, completed: boolean) => {
+  if (completed) return "";
   return unlocked ? (
     <img src="/unlocked.png" alt="Unlocked" className="lock" />
   ) : (
