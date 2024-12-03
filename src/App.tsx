@@ -25,14 +25,12 @@ function App() {
   }, [updateLeaderBoard]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    setInterval(() => {
       //Call the API to get the latest leaderboard -
       setIsFetching(true);
       initLeaderBoard();
     }, LEADERBOARD_UPDATE_TIMER);
-
-    return clearInterval(interval);
-  }, [initLeaderBoard, updateLeaderBoard]);
+  }, [initLeaderBoard]);
 
   useEffect(() => {
     initLeaderBoard();
