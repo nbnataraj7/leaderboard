@@ -23,11 +23,13 @@ function App() {
   }, [updateLeaderBoard]);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       //Call the API to get the latest leaderboard -
       setIsFetching(true);
       initLeaderBoard();
     }, LEADERBOARD_UPDATE_TIMER);
+
+    return () => clearInterval(interval);
   }, [initLeaderBoard]);
 
   useEffect(() => {
@@ -83,6 +85,9 @@ function App() {
               <div className="team-title row">{team.teamName}</div>
               <div className={toCompleteClass(team.stage1Completed) + " row"}>
                 <p>{toMinutes(team.stage1TimeTaken)}</p>
+                {team.stage1TimeTaken === 0 && (
+                  <p className="placeholder-hint">In Progress</p>
+                )}
               </div>
               <div className={toCompleteClass(team.stage2Completed) + " row"}>
                 <p>{toUnlocked(team.stage2Unlocked, team.stage2Completed)}</p>

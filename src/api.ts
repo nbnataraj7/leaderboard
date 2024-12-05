@@ -18,8 +18,10 @@ export const fetchLeaderboard = async () => {
   try {
     const response = await instance.get<LeaderboardDTO>("");
     const keys = Object.keys(response.data.data);
-    const teams = keys.map((key: string) => response.data.data[key][0]);
-    return teams;
+    const teams = keys.map((key: string) => response.data.data[key]);
+    const allTeams = teams.shift() || [];
+    const restTeams = teams.flat();
+    return [...restTeams, ...allTeams];
   } catch (error) {
     console.error(error);
   }

@@ -1,7 +1,6 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  height: 100vh;
   width: 100vw;
 }
 
@@ -13,6 +12,8 @@
   height: 100%;
   position: relative;
   z-index: 1000;
+  overflow-y: scroll;
+  margin-bottom: 1rem;
 }
 
 .container::before {
@@ -102,6 +103,8 @@ remove border and spaces from table
   justify-content: center;
   padding: 1rem;
   gap: 1rem;
+  background: linear-gradient(45deg, #04335a, transparent);
+  z-index: 900;
 }
 
 .loader {
@@ -115,6 +118,7 @@ remove border and spaces from table
   position: absolute;
   left: 1rem;
   top: 1rem;
+  z-index: 1000;
 }
 
 p {
@@ -195,9 +199,13 @@ p {
 }
 
 .leaders-row.second {
-  border: 4px solid #C0C0C0;
+  border: 4px solid #c0c0c0;
 }
 
 .leaders-row.third {
-  border: 2px solid #CE8946;
+  border: 2px solid #ce8946;
+}
+
+.placeholder-hint {
+  font-size: 1rem;
 }
