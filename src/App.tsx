@@ -62,6 +62,11 @@ function App() {
     <>
       <div className="container">
         {isFetching && <div className="loader"></div>}
+        <img
+          className="logo"
+          src="/logo-nemetschek-group.svg"
+          height={"100px"}
+        />
         <div className="header">
           <img src="/badge.png" height={"50px"} />
           <h1 className="title">Leaderboard</h1>

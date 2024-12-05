@@ -57,14 +57,19 @@ remove border and spaces from table
 }
 
 .logo {
-  height: 6em;
+  height: 3em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  position: fixed;
+  left: 0;
+  z-index: 9999;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
