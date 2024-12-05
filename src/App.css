@@ -144,8 +144,13 @@ p {
 .team-title {
   text-align: center;
   text-transform: capitalize;
-  font-size: 24px;
+  font-size: 26px;
   position: relative;
+}
+
+.time {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .badge {
@@ -163,6 +168,7 @@ p {
 .leader-heading {
   font-size: 1.5rem;
   font-weight: bold;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
   display: flex;
   gap: 1rem;
@@ -187,7 +193,7 @@ p {
   gap: 3rem;
   border-radius: 70px;
   border: 1px solid #eee;
-  padding: 0px 1rem;
+  padding: 1rem 0;
   box-shadow: 2px 2px 4px 2px #333;
 }
 
@@ -197,6 +203,11 @@ p {
   place-content: center;
   justify-content: center;
   flex: 1;
+  font-weight: bold;
+}
+
+.leaders-row .row p {
+  font-weight: bold;
 }
 
 .leaders-row.winner {

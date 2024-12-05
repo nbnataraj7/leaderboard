@@ -89,27 +89,33 @@ function App() {
               {getMedal(team)}
               <div className="team-title row">{team.teamName}</div>
               <div className={toCompleteClass(team.stage1Completed) + " row"}>
-                <p>{toMinutes(team.stage1TimeTaken)}</p>
+                <div className="time">{toMinutes(team.stage1TimeTaken)}</div>
                 {team.stage1TimeTaken === 0 && (
                   <p className="placeholder-hint">In Progress</p>
                 )}
               </div>
               <div className={toCompleteClass(team.stage2Completed) + " row"}>
-                <p>{toUnlocked(team.stage2Unlocked, team.stage2Completed)}</p>
+                <div>
+                  {toUnlocked(team.stage2Unlocked, team.stage2Completed)}
+                </div>
                 {team.stage2Unlocked && (
-                  <p>{toMinutes(team.stage2TimeTaken)}</p>
+                  <div className="time">{toMinutes(team.stage2TimeTaken)}</div>
                 )}
               </div>
               <div className={toCompleteClass(team.stage3Completed) + " row"}>
-                <p>{toUnlocked(team.stage3Unlocked, team.stage3Completed)}</p>
+                <div>
+                  {toUnlocked(team.stage3Unlocked, team.stage3Completed)}
+                </div>
                 {team.stage3Unlocked && (
-                  <p>{toMinutes(team.stage3TimeTaken)}</p>
+                  <div className="time">{toMinutes(team.stage3TimeTaken)}</div>
                 )}
               </div>
               <div className={toCompleteClass(team.stage4Completed) + " row"}>
-                <p>{toUnlocked(team.stage4Unlocked, team.stage4Completed)}</p>
+                <div>
+                  {toUnlocked(team.stage4Unlocked, team.stage4Completed)}
+                </div>
                 {team.stage4Unlocked && (
-                  <p>{toMinutes(team.stage4TimeTaken)}</p>
+                  <div className="time">{toMinutes(team.stage4TimeTaken)}</div>
                 )}
               </div>
             </div>
