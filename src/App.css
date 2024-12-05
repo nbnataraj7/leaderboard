@@ -189,11 +189,11 @@ p {
   font-size: 12px;
   justify-content: space-between;
   align-items: center;
-  margin: 8px 0;
+  margin: 5px 0;
   gap: 3rem;
   border-radius: 70px;
   border: 1px solid #eee;
-  padding: 1rem 0;
+  padding: 1rem 15px;
   box-shadow: 2px 2px 4px 2px #333;
 }
 
