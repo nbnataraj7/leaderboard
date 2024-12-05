@@ -11,17 +11,40 @@
   align-items: center;
   justify-content: flex-start;
   height: 100%;
+  position: relative;
+  z-index: 1000;
 }
 
+.container::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: linear-gradient(45deg, black, #0174d1);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+/**
+remove border and spaces from table
+**/
 .container table {
   width: 80%;
   margin-top: 8rem;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .container table thead tr {
   height: 50px;
-  background: #eee;
-  color: #333;
+  background: transparent;
+  color: #eee;
 }
 
 .container table tbody tr td {
@@ -68,10 +91,17 @@
   color: #888;
 }
 
-.title {
+.header {
   position: fixed;
   top: 0px;
+  height: 60px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .loader {
@@ -97,7 +127,6 @@ p {
 }
 
 .completed {
-  background-color: #598748;
   position: relative;
   font-weight: bold;
   font-size: 1.3em;
@@ -107,4 +136,67 @@ p {
   text-align: center;
   text-transform: capitalize;
   font-size: 24px;
+  position: relative;
+}
+
+.team-title .badge {
+  position: absolute;
+  right: 19rem;
+}
+
+.leader-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rem;
+  width: 80%;
+}
+
+.leader-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  place-content: space-between;
+}
+
+.leader-heading .heading {
+  display: flex;
+  place-content: center;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+}
+
+.leaders-row {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  gap: 3rem;
+  border-radius: 70px;
+  border: 1px solid #eee;
+  padding: 0px 1rem;
+  box-shadow: 2px 2px 4px 2px #333;
+}
+
+.leaders-row .row {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.leaders-row.winner {
+  border: 5px solid #ffd700;
+}
+
+.leaders-row.second {
+  border: 4px solid #C0C0C0;
+}
+
+.leaders-row.third {
+  border: 2px solid #CE8946;
 }

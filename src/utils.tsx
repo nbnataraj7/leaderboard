@@ -3,9 +3,9 @@ import moment from "moment";
 export const toMinutes = (timeInMilliseconds: number) => {
   //Show time in minutes and seconds conditionally
   const duration = moment.duration(timeInMilliseconds);
-  const hours = duration.hours() > 0 ? `${duration.hours()} hours` : "";
-  const minutes = duration.minutes() > 0 ? `${duration.minutes()} minutes` : "";
-  const seconds = duration.seconds() > 0 ? `${duration.seconds()} seconds` : "";
+  const hours = duration.hours() > 0 ? `${duration.hours()}h` : "";
+  const minutes = duration.minutes() > 0 ? `${duration.minutes()}m` : "";
+  const seconds = duration.seconds() > 0 ? `${duration.seconds()}s` : "";
   return `${hours} ${minutes} ${seconds}`;
 };
 
