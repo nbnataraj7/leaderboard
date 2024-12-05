@@ -79,10 +79,8 @@ function App() {
               className={getWinnerClass(team) + " leaders-row"}
               key={team.progressId}
             >
-              <div className="team-title row">
-                {getMedal(team)}
-                {team.teamName}
-              </div>
+              {getMedal(team)}
+              <div className="team-title row">{team.teamName}</div>
               <div className={toCompleteClass(team.stage1Completed) + " row"}>
                 <p>{toMinutes(team.stage1TimeTaken)}</p>
               </div>

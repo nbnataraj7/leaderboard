@@ -139,9 +139,9 @@ p {
   position: relative;
 }
 
-.team-title .badge {
+.badge {
   position: absolute;
-  right: 19rem;
+  left: -6rem;
 }
 
 .leader-container {
@@ -170,6 +170,7 @@ p {
 
 .leaders-row {
   display: flex;
+  position: relative;
   font-size: 12px;
   justify-content: space-between;
   align-items: center;
