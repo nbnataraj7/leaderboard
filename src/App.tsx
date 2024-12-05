@@ -46,7 +46,7 @@ function App() {
     else if (team.stage3Completed)
       return <img className="badge" src="/2nd-place.png" height={"50px"} />;
     else if (team.stage2Completed)
-      return <img className="badge" src="/3rd-place.png" height={"50px"} />;
+      return <img className="badge" src="/bronze-badge.png" height={"55px"} />;
     else return "";
   }, []);
 
@@ -127,6 +127,8 @@ function App() {
         <a href="https://www.flaticon.com/free-icons/3rd-place" title="3rd place icons">3rd place icons created by Md Tanvirul Haque - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/unlock" title="unlock icons">Unlock icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/lock" title="lock icons">Lock icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/bronze-badge" title="bronze badge icons">Bronze badge icons created by mpanicon - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/silver" title="silver icons">Silver icons created by iconfield - Flaticon</a>
       </footer> */}
     </>
   );
