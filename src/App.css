@@ -62,7 +62,7 @@ remove border and spaces from table
   will-change: filter;
   transition: filter 300ms;
   position: fixed;
-  left: 0;
+  right: 0;
   z-index: 9999;
 }
 
@@ -121,7 +121,7 @@ remove border and spaces from table
   transition: transform;
   animation: logo-spin 0.5s linear infinite;
   position: absolute;
-  right: 1rem;
+  left: 1rem;
   top: 1rem;
   z-index: 1000;
 }
