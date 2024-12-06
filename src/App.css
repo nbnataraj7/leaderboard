@@ -121,7 +121,7 @@ remove border and spaces from table
   transition: transform;
   animation: logo-spin 0.5s linear infinite;
   position: absolute;
-  left: 1rem;
+  right: 1rem;
   top: 1rem;
   z-index: 1000;
 }
