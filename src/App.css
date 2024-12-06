@@ -62,7 +62,7 @@ remove border and spaces from table
   will-change: filter;
   transition: filter 300ms;
   position: fixed;
-  right: 0;
+  right: 1rem;
   z-index: 9999;
 }
 
